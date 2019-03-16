@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>AddBd</title>
+	<!-- styles -->
+	<link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="css/select2.min.css"> -->
+	<link rel="stylesheet" href="css/main.css">
+	<style>
+
+
+	</style>
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div class="top-header">
+			<div class="container">
+				<div class="top-logo">
+					<img src="images/rajcanon.png" alt="">
+				</div>
+				<div class="top-buttons">
+					<button class="btn btn-success">লগইন</button>
+					<button class="btn btn-warning">রেজিস্টার</button>
+				</div>
+			</div>
+		</div>
+		<!-- ======================================= navigation ================================================-->
+		<section class="navigation">
+
+			<nav class="navbar navbar-expand-md fixed-top" id="navbar">
+
+				<div class="container">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item">
+								<a class="nav-link nvlink" href="#">নীড় পাতা</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link nvlink" href="#">বাসা/মেস ভাড়া</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link nvlink" href="#">দৈনন্দিন সার্ভিস</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link nvlink" href="#">অনলাইন কাজ</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link nvlink" href="#">প্রয়োজনীয় যোগাযোগ</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link nvlink" href="#">ভ্রমন</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link nvlink" href="#">ব্লগ</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</nav>
+
+
+
+		</section><!-- end section  -->
+		<!-- ==========================================end navigation========================================== -->
+		<!-- ======================================= search ================================================-->
+		<section class="search">
+
+
+
+			<form action="">
+				<div class="container form-container">
+					<div class="form-row">
+						<div class="col-md-3">
+
+							<select class="form-control form-control-lg js-example-basic-single1">
+
+								<option selected disabled>&#xf045; ক্যাটেগরি </option>
+								<option>Default select</option>
+								<option>Default select</option>
+								<option>Default select</option>
+							</select>
+						</div>
+						<div class="col-md-3">
+							<select class="form-control form-control-lg js-example-basic-single2" placeholder="select city">
+
+
+								<option selected disabled> <i class="fab fa-accusoft"></i> সাব-ক্যাটেগরি </option>
+								<option>Default select</option>
+								<option>Default select</option>
+							</select>
+						</div>
+						<div class="col-md-2">
+
+							<select class="form-control  form-control-lg js-example-basic-single3">
+
+								<option selected disabled>লোকেশন</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</div>
+						<div class="col-md-3">
+
+							<input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="লিখুন">
+						</div>
+						<div class="col-md-1">
+							<button class="btn btn-success">অনুসন্ধান</button>
+
+						</div>
+
+					</div>
+
+
+				</div>
+
+
+			</form>
+
+
+		</section>
+		<!-- ==========================================end search========================================== -->
+		<!-- ======================================= category ================================================-->
+		<section class="post-categories">
+			<section id="cat-location" class="home-section">
+				<div class="container bg-white cat-loc-container">
+					<div class="row">
+						<div class="col-md-9">
+							<div class="cat-list-wrapper">
+								<h3 class="cat-title">টপ ক্যাটেগরি
+								</h3>
+								<div class="row">
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><i class="fa fa-laptop"></i></a>
+											</div>
+											<a class="cat-box-title" href="">ইলেকট্রনিকস
+												<span class="count">(1180)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><i class="fa fa-car" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">গাড়ি
+												<span class="count">(229)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">প্রপার্টি
+												<span class="count">(102)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">হোম অ্যাপ্লায়েন্স
+												<span class="count">(243)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-hotel" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">মেস
+												<span class="count">(211)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-bath" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">স্বাথ্য এবং সৈান্দর্য
+												<span class="count">(283)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-tv" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">ইলেেকট্টিক
+												<span class="count">(28)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-futbol-o" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">খেলাধুলা
+												<span class="count">(54)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-life-ring" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">সার্ভিস
+												<span class="count">(131)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-suitcase" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">চাকরি
+												<span class="count">(42)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">শিক্ষা
+												<span class="count">(32)</span></a>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-4 col-6">
+										<div class="cat-box text-center">
+											<div class="icon"><a href=""><i class="fa fa-industry" aria-hidden="true"></i></a>
+											</div>
+											<a class="cat-box-title" href="">ব্যাবসা
+												<span class="count">(12)</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="city-list-wrapper">
+								<h3 class="cat-title">পপুলার শহর
+								</h3>
+
+								<ul class="home-city-list">
+									<li>
+										<a href=""><i class="fa fa-map-marker" style="color:#00C9A7;margin-right:4px;"> </i> ঢাকা
+											(১২২৬)</a>
+									</li>
+									<li>
+										<a href=""><i class="fa fa-map-marker" style="color:#00C9A7;margin-right:4px;"> </i> চিটাগং
+											(৪৩৩)</a>
+									</li>
+									<li>
+										<a href=""><i class="fa fa-map-marker" style="color:#00C9A7;margin-right:4px;"> </i> সিলেট
+											(১৪৩)</a>
+									</li>
+									<li>
+										<a href=""><i class="fa fa-map-marker" style="color:#00C9A7;margin-right:4px;"> </i> খুলনা
+											(৩২৩)</a>
+									</li>
+									<li>
+										<a href=""><i class="fa fa-map-marker" style="color:#00C9A7;margin-right:4px;"> </i> বরিশাল
+											(৩৪)</a>
+									</li>
+									<li>
+										<a href=""><i class="fa fa-map-marker" style="color:#00C9A7;margin-right:4px;"> </i> রাজশাহী
+											(২৩8)</a>
+									</li>
+									<li>
+										<a href=""><i class="fa fa-map-marker" style="color:#00C9A7;margin-right:4px;"> </i> রংপুর
+											(১৩)</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+		<!-- ==========================================end category========================================== -->
+		<!-- ======================================= posts ================================================-->
+		<section class="all-posts">
+
+			<div class="container post-banner">
+
+				<h2 class="title text-center"><span>খুজুন আপনার পছন্দের জিনিস</span> / <span> পোস্ট করুন ফ্রিতে ।</span></h2>
+			</div>
+			<div class="container featured-posts " id="featured-posts-container">
+				<h3 class="cat-title">বাড়ি / মেস ভাড়া
+				</h3><br>
+				<div class="posts-card">
+
+
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+
+						<!-- .row -->
+					</div>
+
+				</div>
+
+
+
+				<h3 class="cat-title">দৈনন্দিন সার্ভিস
+				</h3><br>
+				<div class="posts-card">
+
+
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+
+						<!-- .row -->
+					</div>
+
+				</div>
+
+
+
+
+				<h3 class="cat-title">অনলাইন কাজ
+				</h3><br>
+				<div class="posts-card">
+
+
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card single-post" style="width: 18rem;">
+								<img src="images/rj2.jpeg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<!-- <p class="card-text"></p> -->
+								</div>
+								<div class="card-footer text-muted">
+									2 days ago
+								</div>
+							</div>
+						</div>
+
+						<!-- .row -->
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+	</div>
+
+
+
+	</section>
+	<!-- ==========================================end posts========================================== -->
+	<!-- ======================================= sec 1 ================================================-->
+	<section class=""></section>
+	<!-- ========================================== sec1 end========================================== -->
+	<!-- ======================================= navigation ================================================-->
+	<section class="">
+
+	</section>
+	<!-- ==========================================end navigation========================================== -->
+
+	<!-- ====================================== footer ================================================-->
+	<section class="footer-section">
+		<!--footer start-->
+<div class="footer-wrap">
+ <div class="container">
+	 <div class="row">
+		 <div class="col-md-4 col-sm-6">
+			 <h3>ABOUT Classify</h3>
+			 <div class="footer-logo"><img src="http://hassandesigns.top/html/classified/images/footer-logo.png" alt=""></div>
+			 <p>Integer ac lorem sit amet est rhoncus dapi bus don cad pede acus morbi elit nunc molestie at ultrices eu eleifen lorem ut dictum erat masa... <a href="about-us.html">Read More</a></p>
+		 </div>
+		 <div class="col-md-2 col-sm-6">
+			 <h3>Quick  LInks</h3>
+			 <ul class="footer-links">
+				 <li><a href="#.">Home</a></li>
+				 <li><a href="#.">About Us</a></li>
+				 <li><a href="#.">Features</a></li>
+				 <li><a href="#.">Categories</a></li>
+				 <li><a href="#.">Blog</a></li>
+				 <li><a href="#.">Contact Us</a></li>
+			 </ul>
+		 </div>
+		 <div class="col-md-3 col-sm-6">
+			 <h3>MAIN CATEGORIES</h3>
+			 <ul class="footer-category">
+				 <li><a href="#.">Electronics</a></li>
+				 <li><a href="#.">Vahicles</a></li>
+				 <li><a href="#.">Bikes</a></li>
+				 <li><a href="#.">Animals</a></li>
+				 <li><a href="#.">Toys</a></li>
+				 <li><a href="#."> Furniture</a></li>
+				 <li><a href="#.">Marketing</a></li>
+				 <li><a href="#.">Technology</a></li>
+			 </ul>
+			 <div class="clearfix"></div>
+		 </div>
+		 <div class="col-md-3 col-sm-6">
+			 <h3>MAIN CATEGORIES</h3>
+			 <div class="address">Lorem # 38, Ispum Hill, Lorem, WA 12345 </div>
+			 <div class="info"><i class="fa fa-phone" aria-hidden="true"></i> <a href="#.">(777) 123 4567</a></div>
+			 <div class="info"><i class="fa fa-fax" aria-hidden="true"></i> <a href="#.">(123) 456 7890</a></div>
+		 </div>
+	 </div>
+	 <div class="copyright">Copyright © 2017 Classify - All Rights Reserved.</div>
+ </div>
+</div>
+
+<!--footer end-->
+
+
+
+	</section>
+	<!-- ==========================================end footer ========================================== -->
+
+	</div>
+
+	<!-- scripts -->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/poper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- <script src="js/select2.min.js"></script> -->
+	<script src="js/main.js"></script>
+	<script>
+
+
+	</script>
+</body>
+
+</html>
