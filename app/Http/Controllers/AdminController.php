@@ -13,7 +13,8 @@ use App\blogCategory;
 use App\blogSubCategory;
 use App\blogTag;
 use App\blogPost;
-
+use App\Client;
+use App\Post;
 
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -253,9 +254,14 @@ class AdminController extends Controller
 
         $request->validate([
     'category' => 'required',
+    'icon_class'=>'required'
     ]);
 
         $category->category_name = $request->category;
+        $category->icon_class = $request->icon_class;
+      if($request->main_category){
+          $category->main_category = $request->main_category;
+      }
         $category->save();
         return redirect()->route('admin.categories');
     }
@@ -278,6 +284,8 @@ class AdminController extends Controller
         DB::table('subcategories')->where('categorie_id', $request->id)->update(['category_name' => $request->ecategory]);
 
         $category->category_name = $request->ecategory;
+        $category->icon_class = $request->icon_class;
+
         $category->save();
 
         return redirect()->route('admin.categories');
@@ -346,7 +354,27 @@ class AdminController extends Controller
 
         return response()->json($scategory);
     }
+/*=============================================clients and posts========================*/
+public function siteUsers(){
+  $clients = Client::all();
+return view('admin.users', compact('clients'));
+}
 
+public function deleteUsers(Request $request, $id){
+  $user = Client::find($id);
+  $user->delete();
+  session()->flash('user_delete', 'User Deleted Successfully.');
+  return redirect()->route('admin.clients');
+}
+
+public function userPosts(){
+$posts = Post::all();
+return view('admin.user_posts', compact('posts'));
+}
+
+public function userPostDelete(Request $request, $id){
+  
+}
 
 
 
@@ -442,7 +470,6 @@ class AdminController extends Controller
     {
         return view('admin.blog.blog_post');
     }
-
 
     //end
 }

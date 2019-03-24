@@ -29,12 +29,15 @@
 				<img src="{!! asset('frontend/images/clasify.png') !!}" alt="">
 			</div>
 			<div class="top-buttons">
-				@if (session()->has('role'))
-				<p>welcome {{ Session::get('full_name')  }}</p>
+				@if (Session()->has('full_name'))
+
+				{{-- <p>welcome {{  }}</p> --}}
 				<a href="{!! route('user.logout') !!}"><button class="btn btn-warning">লগআউট</button></a>
-			@else
-				<a href="login.html"><button class="btn btn-success">লগইন</button></a>
-				<a href="register.html"><button class="btn btn-warning">রেজিস্টার</button></a>
+
+				@endif
+				@if (!session()->has('full_name'))
+					<a href="{!! route('user.login') !!}"><button class="btn btn-success">লগইন</button></a>
+					<a href="{!! route('user.register') !!}"><button class="btn btn-warning">রেজিস্টার</button></a>
 				@endif
 			</div>
 		</div>
@@ -52,20 +55,48 @@
 				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item">
-							<a class="nav-link nvlink" href="index3.html">নীড় পাতা</a>
+							<a class="nav-link nvlink" href="{!! route('home') !!}">নীড় পাতা</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link nvlink" href="all_posts.html">সকল অ্যড</a>
+							<a class="nav-link nvlink" href="{!! route('allposts') !!}">সকল অ্যড</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link nvlink" href="all_posts.html">বাসা/মেস ভাড়া</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link nvlink" href="all_posts.html">দৈনন্দিন সার্ভিস</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link nvlink" href="online_work.html">অনলাইন কাজ</a>
-						</li>
+
+						@foreach ($category as $cat)
+							@if ($cat->main_category == 1)
+								<li class="nav-item">
+									<a class="nav-link nvlink" href="{!! route('category.posts', $cat->category_name) !!}">{{ $cat->category_name }}</a>
+								</li>
+								@break
+							@endif
+
+
+
+
+						@endforeach
+
+						@foreach ($category as $cat)
+							@if ($cat->main_category == 2)
+								<li class="nav-item">
+									<a class="nav-link nvlink" href="{!! route('category.posts', $cat->category_name) !!}">{{ $cat->category_name }}</a>
+								</li>
+								@break
+							@endif
+
+
+
+
+						@endforeach
+
+
+						@foreach ($category as $cat)
+							@if ($cat->main_category == 3)
+								<li class="nav-item">
+									<a class="nav-link nvlink" href="{!! route('category.posts', $cat->category_name) !!}">{{ $cat->category_name }}</a>
+								</li>
+								@break
+							@endif
+
+						@endforeach
 						<li class="nav-item">
 							<a class="nav-link nvlink" href="#">প্রয়োজনীয় যোগাযোগ</a>
 						</li>
@@ -73,9 +104,11 @@
 						<li class="nav-item">
 							<a class="nav-link nvlink" href="blog.html">ব্লগ</a>
 						</li>
+								@if (session()->has('role'))
 						<li class="nav-item">
-							<a class="nav-link nvlink" href="user_dashboard.html"> ড্যাসবোর্ড</a>
+							<a class="nav-link nvlink" href="{!! route('user.dashboard.posts') !!}"> ড্যাসবোর্ড</a>
 						</li>
+					@endif
 
 					</ul>
 
@@ -155,6 +188,7 @@
 	<!-- <script src="js/select2.min.js"></script> -->
 	<script src="{!! asset('frontend/js/main3.js') !!}"></script>
 @stack('dashboard_script')
+@stack('post-filter-js')
 </body>
 
 </html>

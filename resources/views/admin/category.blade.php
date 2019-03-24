@@ -30,11 +30,25 @@ Moderator Index
                 </div>
                 <div class="modal-body">
                     <form action="{!! route('admin.category.add') !!}" method="POST">
-                      {{ csrf_field() }}
+                        {{ csrf_field() }}
 
                         <div class="form-group">
                             <label for="name" class="col-form-label">Category Name :</label>
                             <input type="text" name="category" class="form-control" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Icon Class Name :</label>
+                            <input type="text" name="icon_class" class="form-control" id="name2">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="division">Category Precedence :</label>
+                            <select class="form-control" id="division" name="main_category">
+                                <option selected disabled></option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
                         </div>
 
                 </div>
@@ -60,11 +74,25 @@ Moderator Index
                 </div>
                 <div class="modal-body">
                     <form action="{!! route('admin.category.edit') !!}" method="POST">
-                      {{ csrf_field() }}
-                      <input type="hidden" name="id" id="eid" value="">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" id="eid" value="">
                         <div class="form-group">
                             <label for="editCategory" class="col-form-label">Category Name :</label>
                             <input type="text" name="ecategory" class="form-control" id="editCategory" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Icon Class Name :</label>
+                            <input type="text" name="icon_class" class="form-control" id="name3">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="division2">Category Precedence :</label>
+                            <select class="form-control" id="division2" name="main_category">
+                                <option selected disabled id="main_cat"></option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
                         </div>
 
 
@@ -104,40 +132,44 @@ Moderator Index
     <div class="">
         <div class="row">
 
-                <table id="datatable-keytable" class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Sr No</th>
-                            <th>Category Name</th>
-                          <th>Actions</th>
-                        </tr>
-                    </thead>
+            <table id="datatable-keytable" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Category Name</th>
+                        <th>Icon Class</th>
+                        <th>Top Category Order</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
 
 
-                    <tbody>
-                      @php
-                        $i = 0;
-                      @endphp
-                      @foreach ($categories as $category)
-                        @php
-                          $i++;
-                        @endphp
-                        <tr>
-                            <td>{{ $i }}</td>
-                            <td>{{ $category->category_name }}</td>
+                <tbody>
+                    @php
+                    $i = 0;
+                    @endphp
+                    @foreach ($categories as $category)
+                    @php
+                    $i++;
+                    @endphp
+                    <tr>
+                        <td>{{ $i }}</td>
+                        <td>{{ $category->category_name }}</td>
+  <td>{{ $category->icon_class }}</td>
+  <td>{{ $category->main_category }}</td>
+                        <td style="margin:0 auto;text-align:center;display:flex;">
 
-                            <td style="margin:0 auto;text-align:center;display:flex;">
-
-                                <button data-toggle="modal" data-target="#editModeratorModal" class="btn btn-success editCatModal" data-id="{{ $category->id }}">
-                                    <i class="fa fa-edit"> </i> </button>
-                                <form action="{!! route('admin.category.delete', $category->id) !!}" method="POST">
-                                  {{ csrf_field() }}
-                                  <button class="btn btn-danger"><i class="fa fa-trash"> </i> </button>
-                                </form></td>
-                        </tr>
-                          @endforeach
-                    </tbody>
-                </table>
+                            <button data-toggle="modal" data-target="#editModeratorModal" class="btn btn-success editCatModal" data-id="{{ $category->id }}">
+                                <i class="fa fa-edit"> </i> </button>
+                            <form action="{!! route('admin.category.delete', $category->id) !!}" method="POST">
+                                {{ csrf_field() }}
+                                <button class="btn btn-danger"><i class="fa fa-trash"> </i> </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
 
         </div>
@@ -151,34 +183,36 @@ Moderator Index
 @endsection
 
 @push('category_script')
-  <script>
-  $.ajaxSetup({
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-  });
-
-  $(document).ready(function() {
-  $('.editCatModal').on('click', function() {
-
-      var id = $(this).data('id');
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: "{!! route('admin.category.edit.json') !!}",
-      data: {
-          id: id
-      },
-      success: function(response) {
-        $('#eid').val(response.id);
-          $('#editCategory').val(response.category_name);
-      },
-      error: function(error) {
-          console.log(error);
-      }
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
     });
-  });
-   });
-  </script>
+
+    $(document).ready(function() {
+        $('.editCatModal').on('click', function() {
+
+            var id = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "{!! route('admin.category.edit.json') !!}",
+                data: {
+                    id: id
+                },
+                success: function(response) {
+                    $('#eid').val(response.id);
+                    $('#editCategory').val(response.category_name);
+                    $('#name3').val(response.icon_class);
+                    $('#main_cat').text(response.main_category);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
 
 @endpush

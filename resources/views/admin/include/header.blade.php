@@ -92,6 +92,13 @@
                                       </li>
                                     </ul>
                                 </li>
+                                <li><a href="{!! route('admin.client.posts') !!}"><i class="fa fa-sticky-note-o"></i> User Posts </a>
+
+                                </li>
+                                <li><a href="{!! route('admin.clients') !!}"><i class="fa fa-users"></i> Users </a>
+
+                                </li>
+
 
                             </ul>
                         </div>
@@ -219,6 +226,7 @@
     @stack('subcategory_script')
     @stack('division_script')
     @stack('city_script')
+    @stack('userpost_script')
 </body>
 
 </html>

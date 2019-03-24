@@ -232,26 +232,20 @@ span.divider {
   border: 1px solid gold;
 }
 
-.card.product-card div.card-body {
+.card.product-card div.card-body,.card.product-card2 div.card-body {
   padding: 10px 25px;
 }
 
-.col-sm-3.product-img {
-  width: 100%;
-}
 
-.col-sm-3.product-img {
+
+.col-md-4.product-img {
   width: 100%;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 
-.col-sm-3.product-img img {
-  height: 140px;
-  /* width: 200px; */
-}
 
-.col-sm-7.content {
+.col-md-8.content {
   padding: 0px;
   padding-left: 6px;
   padding-right: 5px;
@@ -259,13 +253,13 @@ span.divider {
   text-align: left;
 }
 
-.col-sm-7.content h4 {
+.col-md-8.content h4 {
   font-size: 19px;
   font-weight: bold;
   text-align: left;
 }
 
-.col-sm-7.content p {
+.col-md-8.content p {
     font-size: 14px;
     color: #28af00;
     font-weight: bold;
@@ -273,13 +267,13 @@ span.divider {
     margin: 0;
 }
 
-.col-sm-2.amount {
+.amount {
   padding: 0px;
   margin: 0px;
   text-align: right;
 }
 
-.col-sm-2.amount span {
+.amount span {
   background: #39c339fc;
   color: white;
   padding: 6px 20px;
@@ -301,9 +295,6 @@ ul.upload-info {
 
 ul.upload-info li {
   color: #1eb51e;
-}
-.card.product-card div.row {
-    padding-bottom: 10px;
 }
 
 .top-add {
@@ -348,4 +339,69 @@ section.related-post div.container {
     /* margin: 5% 0%; */
     margin-bottom: 3%;
     margin-top: 3%;
+}
+
+/*===================================filter accordine =====================================*/
+.tree, .tree ul {
+    margin:0;
+    padding:0;
+    list-style:none
+}
+.tree ul {
+    margin-left:1em;
+    position:relative
+}
+.tree ul ul {
+    margin-left:.5em
+}
+.tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-left:1px solid
+}
+.tree li {
+    margin:0;
+    padding:0 1em;
+    line-height:2em;
+    color:#369;
+    font-weight:700;
+    position:relative
+}
+.tree ul li:before {
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    border-top:1px solid;
+    margin-top:-1px;
+    position:absolute;
+    top:1em;
+    left:0
+}
+.tree ul li:last-child:before {
+    background:#fff;
+    height:auto;
+    top:1em;
+    bottom:0
+}
+.indicator {
+    margin-right:5px;
+}
+.tree li a {
+    text-decoration: none;
+    color:#369;
+}
+.tree li button, .tree li button:active, .tree li button:focus {
+    text-decoration: none;
+    color:#369;
+    border:none;
+    background:transparent;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    outline: 0;
 }

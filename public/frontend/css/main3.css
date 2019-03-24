@@ -476,9 +476,10 @@ section.details-card div div.row div.col-md-4 {
 }
 
 .catpost-button {
-  margin: 0 auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
-
 .catpost-button .btn-success {
   color: #171616;
   background-color: #f3f3f3a6;

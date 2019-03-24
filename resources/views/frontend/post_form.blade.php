@@ -1,7 +1,7 @@
 @extends('frontend.include.header')
 
 @section('page-title')
-Edit post
+Dashboard
 @endsection
 
 
@@ -36,11 +36,11 @@ Edit post
                 <div class="card">
                     {{-- <div class="card-header"></div> --}}
                     <div class="card-body">
-                        <a class="nav-link" href="{!! route('user.dashboard.posts') !!}">Post List</a>
+                      <a class="nav-link" href="{!! route('user.dashboard.posts') !!}">Post List</a>
 
-                        <a class="nav-link" href="{!! route('user.dashboard.post.form') !!}">Post</a>
+                          <a class="nav-link" href="{!! route('user.dashboard.post.form') !!}">Post</a>
 
-                        <a class="nav-link" href="{!! route('dashboard.notification') !!}">Notification</a>
+                          <a class="nav-link" href="{!! route('dashboard.notification') !!}">Notification</a>
 
                     </div>
                 </div>
@@ -64,45 +64,51 @@ Edit post
 
                         @endif
 
+                        <!-- session message -->
+                        @if (session()->has('post_success'))
+                        <div class="alert alert-success alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ session('post_success') }}
+                        </div>
+                        @endif
+                        <!-- post delete -->
+                        <!-- session message -->
+                        @if (session()->has('post_delete'))
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ session('post_delete') }}
+                        </div>
+                        @endif
+                        <!-- end delete post -->
+                        <div class="tab-content">
 
-                        <div class="tab-content" id="v-pills-tabContent">
-                            <div class="">
 
 
                                 <!-- end error -->
-                                <form action="{!! route('post.edit.submit') !!}" method="POST" enctype="multipart/form-data">
+                                <form action="{!! route('user.post.submit') !!}" method="POST" enctype="multipart/form-data">
                                     {{ csrf_field() }}
 
-                                    <input type="hidden" name="clientemail" value="{{ $post->client_email }}">
-                                      <input type="hidden" name="id" value="{{ $post->id }}">
-                                        <input type="hidden" name="client_id" value="{{ $post->client_id }}">
+                                    <input type="hidden" name="clientemail" value="{{ session('user_email') }}">
                                     <div class="form-group">
                                         <label for=""><b>Title </b><span style="color:red;">*</span> </label>
-                                        <input type="text" class="form-control" name="title" value="{{ $post->title }}">
+                                        <input type="text" class="form-control" name="title" placeholder="enter title">
                                     </div>
                                     <div class="form-group">
                                         <label for="category"><b>Category </b><span style="color:red;">*</span> </label>
                                         <select class="form-control" id="category" name="category_name">
-                                            <option selected>{{ $post->category_name }}</option>
-                                            @foreach ($category as $c)
-                                            @if ($post->category_name == $c->category_name)
-                                            @continue
-                                            @endif
-                                            <option>{{ $c->category_name }}</option>
-                                            @endforeach
+                                            <option selected disabled>select Category</option>
+                                          @foreach ($category as $cat)
+                                            <option>{{ $cat->category_name }}</option>
+                                          @endforeach
                                         </select>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="subcategory"><b>Sub Category </b><span style="color:red;">*</span> </label>
                                         <select class="form-control" id="subcategory" name="subcategory_name">
-                                            <option selected>{{ $post->subcategory_name }}</option>
-
-                                            @foreach ($subcategory as $sc)
-                                            @if ($post->subcategory_name == $sc->subcategory_name)
-                                            @continue
-                                            @endif
-                                            <option>{{ $sc->subcategory_name }}</option>
+                                            <option selected disabled>select Sub-Category</option>
+                                            @foreach ($subcategory as $scat)
+                                              <option>{{ $scat->subcategory_name }}</option>
                                             @endforeach
 
                                         </select>
@@ -110,27 +116,18 @@ Edit post
                                     <div class="form-group">
                                         <label for="location"><b>Division </b><span style="color:red;">*</span> </label>
                                         <select class="form-control" id="location" name="location">
-                                            <option selected>{{ $post->division_name }}</option>
-
-                                            @foreach ($division as $d)
-                                            @if ($post->division_name == $d->division_name)
-                                            @continue
-                                            @endif
-                                            <option>{{ $d->division_name }}</option>
+                                            <option selected disabled>Select Division</option>
+                                            @foreach ($division as $div)
+                                              <option>{{ $div->division_name }}</option>
                                             @endforeach
-
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="city"><b>City </b><span style="color:red;">*</span> </label>
                                         <select class="form-control" id="city" name="city_name">
-                                            <option selected>{{ $post->citie_name }}</option>
-
+                                            <option selected disabled>select city</option>
                                             @foreach ($city as $c)
-                                            @if ($post->citie_name == $c->city_name)
-                                            @continue
-                                            @endif
-                                            <option>{{ $c->city_name }}</option>
+                                              <option>{{ $c->city_name }}</option>
                                             @endforeach
 
                                         </select>
@@ -139,36 +136,25 @@ Edit post
 
                                     <div class="form-group">
                                         <label for=""><b>Price </b> </label>
-                                        <input type="number" class="form-control" name="price" value="{{ $post->price }}">
+                                        <input type="number" class="form-control" name="price" placeholder="enter price">
                                     </div>
                                     <div class="form-group">
                                         <label for="city"><b>Negotiation </b><span style="color:red;">*</span> </label>
                                         <select class="form-control" id="negotiation" name="negotiation">
-                                            @if ($post->negotiation == 0)
-                                            <option selected>No</option>
+                                            <option selected disabled>select negotiation</option>
                                             <option>Yes</option>
-                                            @else
-                                            <option selected>Yes</option>
                                             <option>No</option>
-                                            @endif
-
                                         </select>
                                     </div>
                                     <div class="form-group">
 
                                         <div class="row">
                                             <div class="col-md-4"><label for=""><b>Image 1 </b><span style="color:red;">*</span> </label>
-                                                <input type="file" class="form-control" name="image1" value="{{ $post->image1 }}">
-                                                <img src="{!! asset('') !!}{{ $post->image1 }}" width="100px" height="80px" alt="" style="padding:5px 2px;">
-                                            </div>
+                                                <input type="file" class="form-control" name="image1" placeholder="enter image"></div>
                                             <div class="col-md-4"><label for=""><b>Image 2 :</b></label>
-                                                <input type="file" class="form-control" name="image2">
-                                                <img src="{!! asset('') !!}{{ $post->image2 }}" alt="" width="100px" height="80px" style="padding:5px 2px;">
-                                            </div>
+                                                <input type="file" class="form-control" name="image2" placeholder="enter image"></div>
                                             <div class="col-md-4"><label for=""><b>Image 3 :</b></label>
-                                                <input type="file" class="form-control" name="image3" placeholder="enter image">
-                                                <img src="{!! asset('') !!}{{ $post->image3 }}" alt="" width="100px" height="80px" style="padding:5px 2px;">
-                                            </div>
+                                                <input type="file" class="form-control" name="image3" placeholder="enter image"></div>
                                         </div>
                                         <span style="color:gray;font-size:13px;">Image Size must be less then 2mb.</span>
                                     </div>
@@ -176,29 +162,22 @@ Edit post
 
                                     <div class="form-group">
                                         <label for=""><b>Body :</b> <span style="color:red;">*</span></label>
-                                        <textarea name="body" id="mytextarea" class="form-control">{{ $post->body }}</textarea>
+                                        <textarea name="body" id="mytextarea" class="form-control"></textarea>
                                     </div>
 
 
                                     <div class="form-group">
                                         <label for="city"><b>Status </b><span style="color:red;">*</span> </label>
                                         <select class="form-control" id="status" name="status">
-                                            @if ($post->status == 'Publish')
-                                            <option selected>Publish</option>
-
-                                            <option>Hide</option>
-                                            @else
-                                            <option selected>Hide</option>
+                                            <option selected disabled>select Status</option>
                                             <option>Publish</option>
-                                            @endif
+                                            <option>Hide</option>
                                         </select>
                                     </div>
 
                                     <button type="submit" class="btn btn-success">Submit</button>
                                 </form>
-                            </div>
 
-                        </div>
                     </div>
                 </div>
                 <!-- .col-9 -->

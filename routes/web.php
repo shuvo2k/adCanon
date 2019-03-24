@@ -53,6 +53,11 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin_middleware'], function (
     Route::get('/subcategory/edit/json', 'AdminController@editSubCategoryJson')->name('admin.subcategory.edit.json');
     Route::post('/subcategory/edit', 'AdminController@editSubCategory')->name('admin.subcategory.edit');
 
+   //site users and posts
+   Route::get('/users', 'AdminController@siteUsers')->name('admin.clients');
+   Route::post('/users/delete/{id}', 'AdminController@deleteUsers')->name('admin.clients.delete');
+   Route::get('/users/posts/', 'AdminController@userPosts')->name('admin.client.posts');
+   Route::post('/user/posts/delete/{id}', 'AdminController@userPostDelete')->name('admin.client.post.delete');
 
 
     /*========================================Blog==================================================================*/
@@ -97,14 +102,21 @@ Route::get('/user/login', 'ClientController@userLogin')->name('user.login');
 Route::post('/user/login/post', 'ClientController@userLoginPost')->name('user.login.post');
 
 Route::group(['middleware'=>'user_middleware'], function () {
-Route::get('/user/dashboard/','ClientController@userDashboard')->name('user.dashboard');
+Route::get('/user/dashboard/posts','ClientController@userPosts')->name('user.dashboard.posts');
+Route::get('/user/dashboard/post/form','ClientController@userPostForm')->name('user.dashboard.post.form');
 Route::get('/user/logout/', 'ClientController@userLogout')->name('user.logout');
 Route::post('/user/ad/post','ClientController@userPostSubmit')->name('user.post.submit');
-Route::get('/dashboard/notification', 'ClientController@messageNotification')->name('dashboard.notification');
+Route::get('/dashboard/notification/', 'ClientController@messageNotification')->name('dashboard.notification');
 Route::post('/post/delete/', 'ClientController@deletePost')->name('post.delete');
-Route::get('/post/edit/{client_id}/{post_id}/{slug}/','ClientController@editPost')->name('post.edit');
+Route::get('/post/edit/{clientid?}/{postid?}/{slug?}/','ClientController@editPost')->name('post.edit');
+Route::post('/post/edit/submit', 'ClientController@editSubmit')->name('post.edit.submit');
 });
 
-Route::get('/details/{id}/{slug}','ClientController@postDetail')->name('post.details');
+Route::get('/', 'ClientController@Home')->name('home');
+Route::get('/details/{id?}/{slug?}','ClientController@postDetail')->name('post.details');
 Route::post('/details/review', 'ClientController@postReview')->name('post.review');
 Route::post('/post/message', 'ClientController@postMessage')->name('post.message');
+Route::get('/404', 'ClientController@ErrorPage')->name('error.page');
+Route::get('/all-posts/', 'ClientController@allPosts')->name('allposts');
+Route::get('/search/', 'ClientController@searchResultPosts')->name('search');
+Route::get('/category/{category_name?}', 'ClientController@postByCategoryNav')->name('category.posts');
